@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { GifService } from '../../services/gifs.service';
 
 @Component({
     selector: 'gifs-search-box',
@@ -21,12 +22,16 @@ export class SearchGiftComponent {
     @ViewChild('txtTagInput')
     public tagInput!: ElementRef<HTMLInputElement>;
 
-    constructor() { }
+    constructor(
+        private gitServices: GifService
+    ) { }
 
     searchTag(){
         const newTag = this.tagInput.nativeElement.value;
 
+        this.gitServices.searchTag(newTag)
         console.log(newTag)
+        this.tagInput.nativeElement.value = ''
     }
    
 }

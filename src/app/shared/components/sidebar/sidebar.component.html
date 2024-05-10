@@ -3,10 +3,19 @@
     <h3 class="text-light"> GifsApp </h3>
     <hr class="text-white">
 
-    <div class="list-group list-reset">
-        <button class="list-group-item list-group-item-action">
-            valoran
+    <div 
+        
+        class="list-group list-reset" 
+       >
+
+        <button
+            *ngFor="let item of tagHyst"
+            class="list-group-item list-group-item-action "
+            id="btnTag"
+            >
+            {{ item | titlecase}}
         </button>
+
     </div>
 
 
