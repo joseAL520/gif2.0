@@ -6,11 +6,18 @@ import { Gif } from '../../interfaces/gif.interfaces';
   template: `
 
     <div class="card mb-2 text-center bg-dark">
-      <img 
+    
+      <shared-lazy-image
+        [url]="gif.images.downsized_medium.url"
+        [alt]="gif.title || 'No name'  "
+      ></shared-lazy-image>
+    
+  
+    <!-- <img 
         class="card-img-top"
         [src]="gif.images.downsized_medium.url" 
         [alt]="gif.title"
-      >
+      > -->
 
       <div class="card-body text-white">
         <p   class="card-text">
