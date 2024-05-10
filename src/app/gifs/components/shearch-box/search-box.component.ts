@@ -28,9 +28,7 @@ export class SearchGiftComponent {
 
     searchTag(){
         const newTag = this.tagInput.nativeElement.value;
-
         this.gitServices.searchTag(newTag)
-        console.log(newTag)
         this.tagInput.nativeElement.value = ''
     }
    
