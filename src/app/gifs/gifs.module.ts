@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './pages/home/home.component';
 import { SearchGiftComponent } from './components/shearch-box/search-box.component';
 import { CartListComponent } from './components/card-list/card-list.component';
+import { GifCardComponent } from './components/gif-card/gif-card.component';
 
 
 
@@ -12,7 +13,8 @@ import { CartListComponent } from './components/card-list/card-list.component';
   declarations: [
     HomeComponent,
     SearchGiftComponent,
-    CartListComponent
+    CartListComponent,
+    GifCardComponent
   ],
   imports: [
     CommonModule
@@ -20,7 +22,8 @@ import { CartListComponent } from './components/card-list/card-list.component';
   exports:[
     HomeComponent,
     SearchGiftComponent,
-    CartListComponent
+    CartListComponent,
+    GifCardComponent
   ]
 })
 export class GifsModule { }

@@ -1,28 +1,14 @@
 
 <div class="row">
     <!-- tarjta de el git -->
-    <div 
+    <gif-card 
         *ngFor="let gif of gifList"
-        class="col-md-3 col-sm-6">
-        <div class=" card mb-2  text-center bg-dark ">
+        [gif]="gif" 
+        class="col-md-3 col-sm-6"
+    ></gif-card>
+ 
 
-            <img 
-                class="card-img-top"
-                [src]="gif.images.downsized_medium.url" 
-                [alt]="gif.title"
-                >
-
-            <div class="card-body text-white">
-                <p   class="card-text">
-                   {{ gif.title }}
-                </p>
-            </div>
-
-
-        </div>
-
-
-    </div>
+   
 </div>
 
 
