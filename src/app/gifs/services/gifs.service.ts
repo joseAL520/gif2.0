@@ -15,12 +15,30 @@ export class GifService {
     
     constructor(
         private http: HttpClient
-    ) { }
+    ) { 
+        this.localeStorage();
+    }
     
     // retorna el tag 
     get tagHistory(){
         return [...this._tagHistory];
     }
+
+    // Guardar la informacion en el local Store
+    private saveLocalStore(): void{
+        localStorage.setItem('history',JSON.stringify(this._tagHistory));
+    }
+
+    // tomar la informacion que sea  persistente
+    private localeStorage():void{
+
+        if(!localStorage.getItem('history')) return;
+        this._tagHistory = JSON.parse( localStorage.getItem('history')! ) ;
+        
+        if(this._tagHistory.length === 0 ) return;
+        this.searchTag(this._tagHistory[0]);
+    }
+
 
     // funcion para organizar el historial de busqueda
     private organizeHystory(tag:string){
@@ -36,6 +54,8 @@ export class GifService {
 
         // de limita de cortar el historial para que la funcion tagHistory pueda retornar 10 tag
         this._tagHistory = this.tagHistory.splice(0,10);
+
+        this.saveLocalStore();
     }
 
     searchTag(tag:string):void {
@@ -60,7 +80,6 @@ export class GifService {
             });
     }
 
-    // servio de gift 
 
 
 }
